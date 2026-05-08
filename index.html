@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lusaka Youth Resource Centre</title>
+<link rel="icon" href="images/logo.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+
+<div class="nav-left">
+  <img src="images/logo.png" class="logo-img">
+  <span class="logo-text">Lusaka Youth Resource Centre</span>
+  <button id="darkModeBtn" type="button" class="dark-mode-btn" title="Toggle Dark Mode">🌙</button>
+</div>
+
+<button id="hamburgerBtn" class="hamburger">☰</button>
+
+<ul class="nav-links">
+
+
+
+<li><a href="index.html">Home</a></li>
+
+<!-- <a href="#" id="loginBtn">Login</a> -->
+
+<li class="dropdown">
+<a href="#">Apply Now ▾</a>
+<ul class="dropdown-menu">
+<li><a href="#application">Online Application</a></li>
+<li><a href="#">Admission Requirements</a></li>
+</ul>
+</li>
+
+<li class="dropdown">
+<a href="#courses">Programmes ▾</a>
+<ul class="dropdown-menu">
+<li><a href="#">ICT</a></li>
+<li><a href="#">Food Production</a></li>
+<li><a href="#">Hospitality</a></li>
+<li><a href="#">Electrical</a></li>
+<li><a href="#">Carpentry</a></li>
+<li><a href="#">Fashion Design</a></li>
+</ul>
+</li>
+
+<li><a href="#">Library</a></li>
+
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#profile">About Us</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+
+  <div class="hero-slide active" style="background-image:url('images/hero-banner.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero2.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero3.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero4.jpg')"></div>
+
+  <div class="hero-content">
+    <h1>Excellence in Education & Innovation</h1>
+    <p>Your Gateway to Academic Success and Professional Growth</p>
+    <a href="#courses" class="btn">Our Courses</a>
+    <a href="#contact" class="btn secondary">Get Involved</a>
+  </div>
+
+</header>
+<!-- WELCOME -->
+<section class="welcome fade-in">
+
+<h2>Welcome to Lusaka Youth Resource Centre</h2>
+<p>Join Thousands of Successful Graduates</p>
+
+<a href="#profile" class="btn">Learn More</a>
+<a href="#courses" class="btn secondary">Our Programmes</a>
+
+</section>
+
+<!-- PROFILE -->
+<section id="profile" class="fade-in">
+
+<h2>Lusaka Youth Resource Centre – Institutional Profile</h2>
+
+<p>
+Lusaka Youth Resource Centre supports young people to begin or continue their education—regardless of where they started, their school history, or whether they previously dropped out.
+</p>
+
+</section>
+
+<!-- COURSES -->
+<section id="courses" class="fade-in">
+
+<h2>Academic Programmes</h2>
+
+<div class="course-grid">
+
+<div class="course-card">
+<img src="images/ict.jpg">
+<h3>School of Engineering & Technology</h3>
+</div>
+
+<div class="course-card">
+<img src="images/food.jpg">
+<h3>College of Business & Economics</h3>
+</div>
+
+<div class="course-card">
+<img src="images/hospitality.jpg">
+<h3>Faculty of Health Sciences</h3>
+</div>
+
+<div class="course-card">
+<img src="images/electrical.jpg">
+<h3>School of Liberal Arts</h3>
+</div>
+
+<div class="course-card">
+<img src="images/carpentry.jpg">
+<h3>Graduate School</h3>
+</div>
+
+<div class="course-card">
+<img src="images/fashion.jpg">
+<h3>Research & Innovation Centre</h3>
+</div>
+
+</div>
+
+</section>
+
+<!-- ONLINE APPLICATION -->
+<section id="application" class="fade-in">
+
+<h2>Admission Portal</h2>
+<p>Apply to enroll and start learning with us. If you are freshly out of high school, a school dropout, or you simply want a fresh start—this is for you.</p>
+
+<p><strong>As you physically come to apply for the 3 month short intensive tevet course carry a photocopy of your green NRC and your passport size photo. THANK YOU!</strong></p>
+
+<form id="applicationForm" class="application-form">
+
+
+<div class="form-group">
+<label for="appName">Full name</label>
+  <input type="text" id="appName" name="fullName" placeholder="e.g., John Banda" autocomplete="name" required>
+</div>
+
+<div class="form-group">
+<label for="appEmail">Email address</label>
+  <input type="email" id="appEmail" name="email" placeholder="e.g., you@example.com" autocomplete="email" inputmode="email" required>
+</div>
+
+<div class="form-group">
+<label for="appPhone">Phone number</label>
+  <input type="tel" id="appPhone" name="phone" placeholder="+260 9XX XXX XXX" autocomplete="tel" inputmode="tel" required>
+</div>
+
+<div class="form-group">
+<label for="appNRC">NRC number</label>
+  <input type="text" id="appNRC" name="nrc" placeholder="e.g., 123456/12/1" autocomplete="off" required>
+</div>
+
+<div class="form-group">
+<label for="appProgramme">Select programme</label>
+  <select id="appProgramme" name="programme" required>
+    <option value="">-- Example programmes --</option>
+    <option value="Metal Fabrication">Metal Fabrication</option>
+    <option value="Food Production">Food Production</option>
+    <option value="Fashion Design & Textile Technology">Fashion Design & Textile Technology</option>
+    <option value="Electrical Technology">Electrical Technology</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="appStatement">Personal Statement *</label>
+  <textarea id="appStatement" placeholder="Tell us why you want to join this programme..." rows="5" required></textarea>
+</div>
+
+<button type="submit" class="btn-apply">Submit Application</button>
+
+</form>
+
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="fade-in">
+
+<h2>Our Achievements</h2>
+
+<div class="stats">
+
+<div>
+<h3>400+</h3>
+<p>Active Students</p>
+</div>
+
+<div>
+<h3>200+</h3>
+<p>Faculty Members</p>
+</div>
+
+<div>
+<h3>95%</h3>
+<p>Employment Rate</p>
+</div>
+
+<div>
+<h3>5+</h3>
+<p>Years of Excellence</p>
+</div>
+
+</div>
+
+</section>
+<!-- GALLERY -->
+<section id="gallery" class="fade-in">
+  <h2>Campus Life & Events</h2>
+  <p>Explore student experiences, research, and campus activities</p>
+
+  <div class="gallery-grid">
+
+    <div class="gallery-item">
+      <img src="images/gallery1.jpg" alt="Students in ICT class">
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/gallery2.jpg" alt="Food production training">
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/gallery3.jpg" alt="Fashion design students">
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/gallery4.jpg" alt="Electrical training">
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/gallery5.jpg" alt="Graduation ceremony">
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/gallery6.jpg" alt="Campus grounds">
+    </div>
+
+  </div>
+
+</section>
+<!-- FAQ -->
+<section id="faq" class="fade-in">
+
+  <h2>Frequently Asked Questions</h2>
+  <p>Everything you need to know about LYRC</p>
+
+  <div class="faq-container">
+
+    <div class="faq-item">
+<button class="faq-question">What programmes does LYRC offer? <span>+</span></button>
+      <div class="faq-answer">
+<p>LYRC offers youth-focused programmes across practical learning areas, mentorship, and skills development pathways. We offer over 50 training opportunities and learning tracks.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">How do I apply? <span>+</span></button>
+      <div class="faq-answer">
+        <p>You can apply online through our Admission Portal, or visit the Admissions Office. The application deadline is typically June 15. You'll need SAT/ACT scores, high school transcripts, and a personal essay.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Is on-campus housing available? <span>+</span></button>
+      <div class="faq-answer">
+<p>Yes, LYRC offers on-campus housing for students. Contact us for more information on housing.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">How long are the programmes? <span>+</span></button>
+      <div class="faq-answer">
+<p>Most programmes are 3 months. Depending on the programme. Some accelerated options are available.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+<button class="faq-question">Is LYRC accredited? <span>+</span></button>
+      <div class="faq-answer">
+<p>LYRC programmes are quality-assured and delivered with recognized partners and professional standards to support youth outcomes.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+<!-- CONTACT -->
+<section id="contact" class="fade-in">
+
+<h2>Contact Us</h2>
+
+<div class="contact-container">
+
+<div class="map">
+<iframe src="https://maps.google.com/maps?q=Lusaka%20Youth%20Resource%20Centre&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+</div>
+
+<form id="contactForm">
+
+  <input type="text" id="name" placeholder="Your Name">
+  <input type="email" id="email" placeholder="Your Email">
+  <textarea id="message" placeholder="Your Message" rows="5"></textarea>
+
+  <span id="formError" style="color:red; font-size:14px;"></span>
+
+  <button type="submit">Send Message</button>
+
+</form>
+</div>
+
+<p><strong>Call:</strong> +260954277317</p>
+<p><strong>Email:</strong> lusakayouthcentre@gmail.com</p>
+<p><strong>Location:</strong> Lusaka, Zambia | Hours: Mon-Fri 8AM-5PM</p>
+
+</section>
+
+<!-- LOGIN SECTION (hidden initially) -->
+<section id="loginSection" class="fade-in" style="display:none; padding: 100px 80px;">
+<h2>Portal Login</h2>
+<form id="loginForm">
+  <select id="role" required>
+    <option value="">Select Role</option>
+    <option value="student">Student</option>
+    <option value="lecturer">Lecturer</option>
+  </select>
+  <input type="text" id="username" placeholder="ID" required>
+  <input type="password" id="password" placeholder="Password" required>
+  <span id="loginError" style="color:red; font-size:14px;"></span>
+  <button type="submit">Login</button>
+</form>
+<button id="backToHome">Back to Home</button>
+</section>
+
+<!-- STUDENT DASHBOARD (hidden initially) -->
+<section id="studentDashboard" class="fade-in" style="display:none;">
+<div class="dashboard-header">
+<h2>Student Portal</h2>
+<p>Student ID: STU2024001 | Sarah Johnson | BS Computer Science, Year 3</p>
+</div>
+
+<!-- TAB NAVIGATION -->
+<div class="tab-navigation">
+<button class="tab-btn active" data-tab="timetable">📅 Timetable</button>
+<button class="tab-btn" data-tab="grades">📊 Grades</button>
+<button class="tab-btn" data-tab="fees">💳 Fee Statement</button>
+<button class="tab-btn" data-tab="profile">👤 Profile</button>
+<button class="tab-btn" data-tab="materials">📚 Learning Materials</button>
+</div>
+
+<!-- TIMETABLE TAB -->
+<div class="tab-content active" id="timetable-tab">
+<h3>Your Timetable</h3>
+<table class="dashboard-table">
+<thead>
+<tr>
+<th>Day</th>
+<th>Time</th>
+<th>Subject</th>
+<th>Lecturer</th>
+<th>Room</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monday</td>
+<td>09:00 - 11:00</td>
+<td>Information Technology Fundamentals</td>
+<td>Mr. Banda</td>
+<td>Lab 1</td>
+</tr>
+<tr>
+<td>Tuesday</td>
+<td>10:00 - 12:00</td>
+<td>Food Production & Safety</td>
+<td>Ms. Chanda</td>
+<td>Kitchen 2</td>
+</tr>
+<tr>
+<td>Wednesday</td>
+<td>09:00 - 11:00</td>
+<td>Business Communication</td>
+<td>Mr. Sichone</td>
+<td>Room 204</td>
+</tr>
+<tr>
+<td>Wednesday</td>
+<td>14:00 - 16:00</td>
+<td>Practical Skills Workshop</td>
+<td>Ms. Mwale</td>
+<td>Workshop A</td>
+</tr>
+<tr>
+<td>Thursday</td>
+<td>10:00 - 12:00</td>
+<td>Industry Standards</td>
+<td>Mr. Moyo</td>
+<td>Room 305</td>
+</tr>
+<tr>
+<td>Friday</td>
+<td>09:00 - 12:00</td>
+<td>Internship Review</td>
+<td>Ms. Lungu</td>
+<td>Room 101</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- GRADES TAB -->
+<div class="tab-content" id="grades-tab">
+<h3>Your Grades</h3>
+<table class="dashboard-table">
+<thead>
+<tr>
+<th>Subject</th>
+<th>Coursework</th>
+<th>Exam</th>
+<th>Final Grade</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Information Technology</td>
+<td>78</td>
+<td>85</td>
+<td>A</td>
+<td style="color: green; font-weight: bold;">PASS</td>
+</tr>
+<tr>
+<td>Food Production</td>
+<td>82</td>
+<td>79</td>
+<td>B+</td>
+<td style="color: green; font-weight: bold;">PASS</td>
+</tr>
+<tr>
+<td>Business Communication</td>
+<td>75</td>
+<td>88</td>
+<td>A-</td>
+<td style="color: green; font-weight: bold;">PASS</td>
+</tr>
+<tr>
+<td>Practical Skills</td>
+<td>90</td>
+<td>92</td>
+<td>A+</td>
+<td style="color: green; font-weight: bold;">PASS</td>
+</tr>
+<tr>
+<td>Industry Standards</td>
+<td>70</td>
+<td>73</td>
+<td>B</td>
+<td style="color: green; font-weight: bold;">PASS</td>
+</tr>
+</tbody>
+</table>
+<div class="gpa-box">
+<strong>Overall GPA:</strong> 3.85 / 4.0
+</div>
+</div>
+
+<!-- FEE STATEMENT TAB -->
+<div class="tab-content" id="fees-tab">
+<h3>Fee Statement</h3>
+<table class="dashboard-table">
+<thead>
+<tr>
+<th>Description</th>
+<th>Amount (K)</th>
+<th>Date</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Registration Fee</td>
+<td>500</td>
+<td>2026-01-15</td>
+<td style="color: green; font-weight: bold;">PAID</td>
+</tr>
+<tr>
+<td>Tuition Fee - Semester 1</td>
+<td>2,000</td>
+<td>2026-01-20</td>
+<td style="color: green; font-weight: bold;">PAID</td>
+</tr>
+<tr>
+<td>Accommodation Fee</td>
+<td>1,200</td>
+<td>2026-01-20</td>
+<td style="color: green; font-weight: bold;">PAID</td>
+</tr>
+<tr>
+<td>Library Fee</td>
+<td>200</td>
+<td>2026-03-01</td>
+<td style="color: green; font-weight: bold;">PAID</td>
+</tr>
+<tr>
+<td>Tuition Fee - Semester 2</td>
+<td>2,000</td>
+<td>2026-05-01</td>
+<td style="color: red; font-weight: bold;">OUTSTANDING</td>
+</tr>
+</tbody>
+</table>
+<div class="fee-summary">
+<p><strong>Total Outstanding Balance: K2,000</strong></p>
+<p style="color: red; margin-top: 10px; background: #ffe0e0; padding: 10px; border-radius: 5px;">⚠️ Payment deadline: 31st May 2026. Late payment penalties may apply.</p>
+</div>
+</div>
+
+<!-- PROFILE TAB -->
+<div class="tab-content" id="profile-tab">
+<h3>My Profile</h3>
+<div class="profile-card">
+<div class="profile-field">
+<strong>Full Name:</strong>
+<p>Sarah Johnson</p>
+</div>
+<div class="profile-field">
+<strong>Student ID:</strong>
+<p>STU2024001</p>
+</div>
+<div class="profile-field">
+<strong>Major:</strong>
+<p>Computer Science</p>
+</div>
+<div class="profile-field">
+<strong>Year:</strong>
+<p>Junior (Year 3 of 4)</p>
+</div>
+<div class="profile-field">
+<strong>GPA:</strong>
+<p style="color: #2ecc71; font-weight: bold;">3.87 / 4.0</p>
+</div>
+<div class="profile-field">
+<strong>Enrollment Date:</strong>
+<p>August 24, 2022</p>
+</div>
+<div class="profile-field">
+<strong>Email:</strong>
+<p>sarah.johnson@lyrc.org.zm</p>
+</div>
+<div class="profile-field">
+<strong>Status:</strong>
+<p style="color: green; font-weight: bold;">ACTIVE</p>
+</div>
+</div>
+</div>
+
+<!-- LEARNING MATERIALS TAB -->
+<div class="tab-content" id="materials-tab">
+<h3>Learning Materials</h3>
+<table class="dashboard-table">
+<thead>
+<tr>
+<th>Document Title</th>
+<th>Uploaded by</th>
+<th>Date Uploaded</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IT Fundamentals - Chapter 1-5.pdf</td>
+<td>Mr. Banda</td>
+<td>2026-04-10</td>
+<td><a href="#" class="download-btn">📥 Download</a></td>
+</tr>
+<tr>
+<td>Food Safety Guidelines.docx</td>
+<td>Ms. Chanda</td>
+<td>2026-04-12</td>
+<td><a href="#" class="download-btn">📥 Download</a></td>
+</tr>
+<tr>
+<td>Business Communication Presentation.pptx</td>
+<td>Mr. Sichone</td>
+<td>2026-04-15</td>
+<td><a href="#" class="download-btn">📥 Download</a></td>
+</tr>
+<tr>
+<td>Workshop Manual - Practical Skills.pdf</td>
+<td>Ms. Mwale</td>
+<td>2026-04-18</td>
+<td><a href="#" class="download-btn">📥 Download</a></td>
+</tr>
+<tr>
+<td>Industry Standards - Compliance.xlsx</td>
+<td>Mr. Moyo</td>
+<td>2026-04-20</td>
+<td><a href="#" class="download-btn">📥 Download</a></td>
+</tr>
+<tr>
+<td>Internship Evaluation Form.pdf</td>
+<td>Ms. Lungu</td>
+<td>2026-04-22</td>
+<td><a href="#" class="download-btn">📥 Download</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<button id="studentLogout">Logout</button>
+</section>
+
+<!-- LECTURER DASHBOARD (hidden initially) -->
+<section id="lecturerDashboard" class="fade-in" style="display:none;">
+<div class="dashboard-header">
+<h2>Faculty Portal</h2>
+<p>Faculty ID: FAC2020015 | Dr. Michael Chen | Computer Science Department | Senior Professor</p>
+</div>
+
+<!-- TAB NAVIGATION -->
+<div class="tab-navigation">
+<button class="tab-btn active" data-tab="my-classes">📚 My Classes</button>
+<button class="tab-btn" data-tab="student-list">👥 Student List</button>
+<button class="tab-btn" data-tab="enter-grades">✍️ Enter Grades</button>
+<button class="tab-btn" data-tab="my-timetable">📅 My Timetable</button>
+<button class="tab-btn" data-tab="announcements">📢 Announcements</button>
+</div>
+
+<!-- MY CLASSES TAB -->
+<div class="tab-content active" id="my-classes-tab">
+<h3>My Classes</h3>
+<div class="classes-grid">
+
+<div class="class-card">
+<h4>Information Technology Fundamentals</h4>
+<p><strong>Programme:</strong> ICT - Year 1</p>
+<p><strong>Enrolled Students:</strong> <span class="badge">28</span></p>
+<p><strong>Schedule:</strong> Monday & Wednesday, 09:00-11:00</p>
+<p><strong>Location:</strong> Lab 1</p>
+</div>
+
+<div class="class-card">
+<h4>Advanced Programming</h4>
+<p><strong>Programme:</strong> ICT - Year 2</p>
+<p><strong>Enrolled Students:</strong> <span class="badge">22</span></p>
+<p><strong>Schedule:</strong> Tuesday & Thursday, 10:00-12:00</p>
+<p><strong>Location:</strong> Lab 2</p>
+</div>
+
+<div class="class-card">
+<h4>Web Development</h4>
+<p><strong>Programme:</strong> ICT - Year 2</p>
+<p><strong>Enrolled Students:</strong> <span class="badge">25</span></p>
+<p><strong>Schedule:</strong> Friday, 09:00-12:00</p>
+<p><strong>Location:</strong> Lab 3</p>
+</div>
+
+<div class="class-card">
+<h4>Software Engineering Practicum</h4>
+<p><strong>Programme:</strong> ICT - Year 2</p>
+<p><strong>Enrolled Students:</strong> <span class="badge">18</span></p>
+<p><strong>Schedule:</strong> Monday & Wednesday, 14:00-16:00</p>
+<p><strong>Location:</strong> Lab 1</p>
+</div>
+
+</div>
+</div>
+
+<!-- STUDENT LIST TAB -->
+<div class="tab-content" id="student-list-tab">
+<h3>Student List</h3>
+<div class="class-selector">
+<label for="classList">Select Class:</label>
+<select id="classList">
+<option value="">-- All Students --</option>
+<option value="ITF">Information Technology Fundamentals</option>
+<option value="AP">Advanced Programming</option>
+<option value="WD">Web Development</option>
+<option value="SEP">Software Engineering Practicum</option>
+</select>
+</div>
+<table class="dashboard-table">
+<thead>
+<tr>
+<th>Student Name</th>
+<th>Student ID</th>
+<th>Attendance %</th>
+<th>Current Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>John Doe</td>
+<td>STU001</td>
+<td>92%</td>
+<td style="color: green; font-weight: bold;">A</td>
+</tr>
+<tr>
+<td>Jane Smith</td>
+<td>STU002</td>
+<td>88%</td>
+<td style="color: green; font-weight: bold;">A-</td>
+</tr>
+<tr>
+<td>Peter Mwale</td>
+<td>STU003</td>
+<td>85%</td>
+<td style="color: green; font-weight: bold;">B+</td>
+</tr>
+<tr>
+<td>Sarah Chanda</td>
+<td>STU004</td>
+<td>78%</td>
+<td style="color: green; font-weight: bold;">B</td>
+</tr>
+<tr>
+<td>Michael Moyo</td>
+<td>STU005</td>
+<td>72%</td>
+<td style="color: orange; font-weight: bold;">B-</td>
+</tr>
+<tr>
+<td>Amelia Lungu</td>
+<td>STU006</td>
+<td>95%</td>
+<td style="color: green; font-weight: bold;">A+</td>
+</tr>
+<tr>
+<td>David Sichone</td>
+<td>STU007</td>
+<td>68%</td>
+<td style="color: orange; font-weight: bold;">C+</td>
+</tr>
+<tr>
+<td>Lucy Banda</td>
+<td>STU008</td>
+<td>81%</td>
+<td style="color: green; font-weight: bold;">B</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- ENTER GRADES TAB -->
+<div class="tab-content" id="enter-grades-tab">
+<h3>Enter Grades</h3>
+<form id="gradesForm" class="grades-form">
+
+<div class="form-group">
+<label for="gradeClass">Select Class *</label>
+<select id="gradeClass" required>
+<option value="">-- Choose a Class --</option>
+<option value="ITF">Information Technology Fundamentals</option>
+<option value="AP">Advanced Programming</option>
+<option value="WD">Web Development</option>
+<option value="SEP">Software Engineering Practicum</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="gradeStudent">Select Student *</label>
+<select id="gradeStudent" required>
+<option value="">-- Choose a Student --</option>
+<option value="STU001">John Doe (STU001)</option>
+<option value="STU002">Jane Smith (STU002)</option>
+<option value="STU003">Peter Mwale (STU003)</option>
+<option value="STU004">Sarah Chanda (STU004)</option>
+<option value="STU005">Michael Moyo (STU005)</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="courseworkMark">Coursework Mark (out of 100) *</label>
+<input type="number" id="courseworkMark" min="0" max="100" placeholder="0-100" required>
+</div>
+
+<div class="form-group">
+<label for="examMark">Exam Mark (out of 100) *</label>
+<input type="number" id="examMark" min="0" max="100" placeholder="0-100" required>
+</div>
+
+<span id="gradeError" style="color:red; font-size:14px; display:block; margin-bottom:10px;"></span>
+<span id="gradeSuccess" style="color:green; font-size:14px; display:block; margin-bottom:10px;"></span>
+
+<button type="submit" class="btn-apply">Save Grade</button>
+
+</form>
+</div>
+
+<!-- MY TIMETABLE TAB -->
+<div class="tab-content" id="my-timetable-tab">
+<h3>My Timetable</h3>
+<table class="dashboard-table">
+<thead>
+<tr>
+<th>Day</th>
+<th>Time</th>
+<th>Class / Group</th>
+<th>Programme & Year</th>
+<th>Room</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monday</td>
+<td>09:00 - 11:00</td>
+<td>Information Technology Fundamentals</td>
+<td>ICT - Year 1</td>
+<td>Lab 1</td>
+</tr>
+<tr>
+<td>Monday</td>
+<td>14:00 - 16:00</td>
+<td>Software Engineering Practicum</td>
+<td>ICT - Year 2</td>
+<td>Lab 1</td>
+</tr>
+<tr>
+<td>Tuesday</td>
+<td>10:00 - 12:00</td>
+<td>Advanced Programming</td>
+<td>ICT - Year 2</td>
+<td>Lab 2</td>
+</tr>
+<tr>
+<td>Wednesday</td>
+<td>09:00 - 11:00</td>
+<td>Information Technology Fundamentals</td>
+<td>ICT - Year 1</td>
+<td>Lab 1</td>
+</tr>
+<tr>
+<td>Wednesday</td>
+<td>14:00 - 16:00</td>
+<td>Software Engineering Practicum</td>
+<td>ICT - Year 2</td>
+<td>Lab 1</td>
+</tr>
+<tr>
+<td>Thursday</td>
+<td>10:00 - 12:00</td>
+<td>Advanced Programming</td>
+<td>ICT - Year 2</td>
+<td>Lab 2</td>
+</tr>
+<tr>
+<td>Friday</td>
+<td>09:00 - 12:00</td>
+<td>Web Development</td>
+<td>ICT - Year 2</td>
+<td>Lab 3</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- ANNOUNCEMENTS TAB -->
+<div class="tab-content" id="announcements-tab">
+<h3>Post an Announcement</h3>
+<form id="announcementForm" class="announcement-form">
+
+<div class="form-group">
+<label for="announcementTitle">Announcement Title *</label>
+<input type="text" id="announcementTitle" placeholder="e.g., Mid-term Assignment Due" required>
+</div>
+
+<div class="form-group">
+<label for="announcementMessage">Message *</label>
+<textarea id="announcementMessage" placeholder="Type your announcement message here..." rows="6" required></textarea>
+</div>
+
+<div class="form-group">
+<label for="announcementClass">Send to Class *</label>
+<select id="announcementClass" required>
+<option value="">-- Select Class --</option>
+<option value="ITF">Information Technology Fundamentals</option>
+<option value="AP">Advanced Programming</option>
+<option value="WD">Web Development</option>
+<option value="SEP">Software Engineering Practicum</option>
+<option value="ALL">All Classes</option>
+</select>
+</div>
+
+<span id="announceError" style="color:red; font-size:14px; display:block; margin-bottom:10px;"></span>
+<span id="announceSuccess" style="color:green; font-size:14px; display:block; margin-bottom:10px;"></span>
+
+<button type="submit" class="btn-apply">Post Announcement</button>
+
+</form>
+
+<div id="announcementsList" style="margin-top: 40px;">
+<h4>Recent Announcements</h4>
+<div class="announcement-item">
+<p><strong>Assignment 3 - Object-Oriented Programming</strong></p>
+<p>Sent to: Advanced Programming (05/04/2026)</p>
+<p>Please complete the OOP assignment by Friday. Submit via the online portal.</p>
+</div>
+<div class="announcement-item">
+<p><strong>Lab Session Changes</strong></p>
+<p>Sent to: All Classes (04/04/2026)</p>
+<p>Lab 2 will be unavailable on Thursday due to maintenance. Sessions moved to Lab 3.</p>
+</div>
+</div>
+</div>
+
+<button id="lecturerLogout">Logout</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+<p>© 2026 Lusaka Youth Resource Centre. All Rights Reserved.</p>
+
+</footer>
+<!-- WHATSAPP BUTTON -->
+<a href="https://wa.me/260954277317" target="_blank" class="whatsapp-btn" title="Chat with us on WhatsApp">
+  💬 Chat with LYRC
+</a>
+<!-- HERO SLIDER -->
+<script>
+
+const slides = document.querySelectorAll('.hero-slide');
+let current = 0;
+
+function nextSlide() {
+  slides[current].classList.remove('active');
+  current = (current + 1) % slides.length;
+  slides[current].classList.add('active');
+}
+
+setInterval(nextSlide, 5000);
+
+</script>
+
+<!-- FORM VALIDATION -->
+<script>
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const name    = document.getElementById('name').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const error   = document.getElementById('formError');
+
+  if (name === '' && email === '' && message === '') {
+    error.textContent = '⚠️ Please fill in all fields.';
+    return;
+  }
+
+  const missing = [];
+
+  if (name === '') missing.push('name');
+  if (email === '') missing.push('email');
+  if (message === '') missing.push('message');
+
+  if (missing.length > 0) {
+    error.textContent = '⚠️ Please fill in the following: ' + missing.join(', ') + '.';
+    return;
+  }
+
+  if (!email.includes('@') || !email.includes('.')) {
+    error.textContent = '⚠️ Please enter a valid email address.';
+    return;
+  }
+
+  error.textContent = '';
+  alert('✅ Message sent successfully! We will get back to you soon.');
+  this.reset();
+
+});
+
+</script>
+<!-- APPLICATION FORM VALIDATION -->
+<script>
+
+document.getElementById('applicationForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('appName').value.trim();
+  const email = document.getElementById('appEmail').value.trim();
+  const phone = document.getElementById('appPhone').value.trim();
+  const nrc = document.getElementById('appNRC').value.trim();
+  const programme = document.getElementById('appProgramme').value;
+  const statement = document.getElementById('appStatement').value.trim();
+  const error = document.getElementById('appError');
+  const success = document.getElementById('appSuccess');
+
+
+
+  const missing = [];
+
+  if (name === '') missing.push('Full Name');
+  if (email === '') missing.push('Email Address');
+  if (phone === '') missing.push('Phone Number');
+  if (nrc === '') missing.push('NRC Number');
+  if (programme === '') missing.push('Programme');
+  if (statement === '') missing.push('Personal Statement');
+
+  if (missing.length > 0) {
+    error.textContent = '⚠️ Please fill in the following: ' + missing.join(', ') + '.';
+    return;
+  }
+
+  if (!email.includes('@') || !email.includes('.')) {
+    error.textContent = '⚠️ Please enter a valid email address.';
+    return;
+  }
+
+  if (phone.length < 10) {
+    error.textContent = '⚠️ Please enter a valid phone number.';
+    return;
+  }
+
+  if (statement.length < 20) {
+    error.textContent = '⚠️ Personal statement must be at least 20 characters long.';
+    return;
+  }
+
+  // Success message
+  success.textContent = '✅ Application submitted successfully! We will review your application and contact you soon.';
+
+  // Send application submission notification via mailto (opens user's email client)
+  const subject = encodeURIComponent('TEVET Course Application - ' + name);
+  const body = encodeURIComponent(
+    'New application submitted:\n\n' +
+    'Full name: ' + name + '\n' +
+    'Email address: ' + email + '\n' +
+    'Phone number: ' + phone + '\n' +
+    'NRC number: ' + nrc + '\n' +
+    'Selected programme: ' + programme + '\n' +
+    'Personal statement: ' + statement + '\n'
+  );
+  window.location.href = 'mailto:lusakayouthcentre@gmail.com?subject=' + subject + '&body=' + body;
+
+  this.reset();
+
+
+});
+
+</script>
+<!-- FAQ ACCORDION -->
+<script>
+
+document.querySelectorAll('.faq-question').forEach(function(button) {
+  button.addEventListener('click', function() {
+    const item = this.parentElement;
+    item.classList.toggle('open');
+  });
+});
+
+</script>
+<!-- SCROLL ANIMATION -->
+<script>
+
+const faders = document.querySelectorAll('.fade-in');
+
+const observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+faders.forEach(function(el) {
+  observer.observe(el);
+});
+
+</script>
+
+<script>
+// Login functionality
+document.getElementById('loginBtn').addEventListener('click', function(e) {
+  e.preventDefault();
+  // Hide all public sections
+  document.querySelectorAll('section:not(#loginSection):not(#studentDashboard):not(#lecturerDashboard)').forEach(sec => sec.style.display = 'none');
+  document.getElementById('loginSection').style.display = 'block';
+});
+
+document.getElementById('backToHome').addEventListener('click', function() {
+  document.getElementById('loginSection').style.display = 'none';
+  // Show public sections
+  document.querySelectorAll('section:not(#loginSection):not(#studentDashboard):not(#lecturerDashboard)').forEach(sec => sec.style.display = 'block');
+});
+
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const role = document.getElementById('role').value;
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value.trim();
+  const error = document.getElementById('loginError');
+
+  if (role === 'student' && username === 'student' && password === 'pass') {
+    document.getElementById('loginSection').style.display = 'none';
+    document.getElementById('studentDashboard').style.display = 'block';
+    error.textContent = '';
+  } else if (role === 'lecturer' && username === 'lecturer' && password === 'pass') {
+    document.getElementById('loginSection').style.display = 'none';
+    document.getElementById('lecturerDashboard').style.display = 'block';
+    error.textContent = '';
+  } else {
+    error.textContent = 'Invalid credentials or role';
+  }
+});
+
+document.getElementById('studentLogout').addEventListener('click', function() {
+  document.getElementById('studentDashboard').style.display = 'none';
+  document.querySelectorAll('section:not(#loginSection):not(#studentDashboard):not(#lecturerDashboard)').forEach(sec => sec.style.display = 'block');
+  document.getElementById('loginForm').reset();
+});
+
+// Student Dashboard Tab Switching
+document.querySelectorAll('.tab-btn').forEach(button => {
+  button.addEventListener('click', function() {
+    const tabName = this.getAttribute('data-tab');
+    
+    // Remove active class from all buttons and contents
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+    
+    // Add active class to clicked button and corresponding content
+    this.classList.add('active');
+    document.getElementById(tabName + '-tab').classList.add('active');
+  });
+});
+
+// Lecturer Grade Form Validation
+document.getElementById('gradesForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const gradeClass = document.getElementById('gradeClass').value;
+  const gradeStudent = document.getElementById('gradeStudent').value;
+  const courseworkMark = document.getElementById('courseworkMark').value;
+  const examMark = document.getElementById('examMark').value;
+  const error = document.getElementById('gradeError');
+  const success = document.getElementById('gradeSuccess');
+
+  error.textContent = '';
+  success.textContent = '';
+
+  const missing = [];
+
+  if (gradeClass === '') missing.push('Class');
+  if (gradeStudent === '') missing.push('Student');
+  if (courseworkMark === '') missing.push('Coursework Mark');
+  if (examMark === '') missing.push('Exam Mark');
+
+  if (missing.length > 0) {
+    error.textContent = '⚠️ Please fill in the following: ' + missing.join(', ') + '.';
+    return;
+  }
+
+  if (courseworkMark < 0 || courseworkMark > 100 || examMark < 0 || examMark > 100) {
+    error.textContent = '⚠️ Marks must be between 0 and 100.';
+    return;
+  }
+
+  const average = (parseInt(courseworkMark) + parseInt(examMark)) / 2;
+  success.textContent = '✅ Grade saved successfully! Student average: ' + average.toFixed(1) + '/100';
+  
+  // Reset form
+  setTimeout(() => {
+    this.reset();
+    success.textContent = '';
+  }, 3000);
+});
+
+// Lecturer Announcement Form Validation
+document.getElementById('announcementForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const title = document.getElementById('announcementTitle').value.trim();
+  const message = document.getElementById('announcementMessage').value.trim();
+  const announcementClass = document.getElementById('announcementClass').value;
+  const error = document.getElementById('announceError');
+  const success = document.getElementById('announceSuccess');
+
+  error.textContent = '';
+  success.textContent = '';
+
+  const missing = [];
+
+  if (title === '') missing.push('Title');
+  if (message === '') missing.push('Message');
+  if (announcementClass === '') missing.push('Class');
+
+  if (missing.length > 0) {
+    error.textContent = '⚠️ Please fill in the following: ' + missing.join(', ') + '.';
+    return;
+  }
+
+  if (message.length < 10) {
+    error.textContent = '⚠️ Message must be at least 10 characters long.';
+    return;
+  }
+
+  success.textContent = '✅ Announcement posted successfully!';
+  
+  // Reset form
+  setTimeout(() => {
+    this.reset();
+    success.textContent = '';
+  }, 3000);
+});
+
+document.getElementById('lecturerLogout').addEventListener('click', function() {
+  document.getElementById('lecturerDashboard').style.display = 'none';
+  document.querySelectorAll('section:not(#loginSection):not(#studentDashboard):not(#lecturerDashboard)').forEach(sec => sec.style.display = 'block');
+  document.getElementById('loginForm').reset();
+});
+
+// TAB SWITCHING FOR STUDENT DASHBOARD
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all student dashboard tab buttons
+  const studentDashboard = document.getElementById('studentDashboard');
+  const studentTabButtons = studentDashboard.querySelectorAll('.tab-btn');
+  
+  studentTabButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const tabName = this.getAttribute('data-tab');
+      
+      // Hide all tab content sections in student dashboard
+      studentDashboard.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Remove active styling from all tab buttons in student dashboard
+      studentTabButtons.forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Show the clicked tab and mark button as active
+      this.classList.add('active');
+      document.getElementById(tabName + '-tab').classList.add('active');
+    });
+  });
+  
+  // Get all lecturer dashboard tab buttons
+  const lecturerDashboard = document.getElementById('lecturerDashboard');
+  const lecturerTabButtons = lecturerDashboard.querySelectorAll('.tab-btn');
+  
+  lecturerTabButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const tabName = this.getAttribute('data-tab');
+      
+      // Hide all tab content sections in lecturer dashboard
+      lecturerDashboard.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Remove active styling from all tab buttons in lecturer dashboard
+      lecturerTabButtons.forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Show the clicked tab and mark button as active
+      this.classList.add('active');
+      document.getElementById(tabName + '-tab').classList.add('active');
+    });
+  });
+});
+
+// Hamburger menu functionality
+document.getElementById('hamburgerBtn').addEventListener('click', function() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('active');
+});
+
+// Close menu when a link is clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', function() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.remove('active');
+  });
+});
+
+// Dark mode toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const darkModeBtn = document.getElementById('darkModeBtn');
+  if (!darkModeBtn) return;
+
+  // Restore dark mode state on page load
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark');
+    darkModeBtn.textContent = '☀️';
+  } else {
+    darkModeBtn.textContent = '🌙';
+  }
+
+  // Toggle dark mode on button click
+  darkModeBtn.addEventListener('click', function() {
+    document.body.classList.toggle('dark');
+
+    if (document.body.classList.contains('dark')) {
+      darkModeBtn.textContent = '☀️';
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      darkModeBtn.textContent = '🌙';
+      localStorage.setItem('darkMode', 'disabled');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
