@@ -174,8 +174,13 @@ nav {
   color: var(--accent);
 }
 
-.dropdown:hover .dropdown-menu {
+.dropdown:hover .dropdown-menu,
+.dropdown.open .dropdown-menu {
   display: block;
+}
+
+.dropdown > a {
+  cursor: pointer;
 }
 
 /* HERO SECTION */
@@ -1483,18 +1488,41 @@ body.dark .faq-item.open .faq-answer {
   }
 
   .nav-links {
-    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
     width: 100%;
+    flex-direction: column;
+    background: white;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
     gap: 0;
-    background: rgba(0, 0, 0, 0.15);
+    z-index: 1000;
   }
 
   .nav-links.active {
-    max-height: 600px;
+    max-height: 500px;
   }
+
+  /* Stack dropdown menus vertically on mobile */
+  .dropdown-menu {
+    position: static;
+    min-width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .dropdown-menu li a {
+    padding-left: 28px;
+  }
+
+  .dropdown:hover .dropdown-menu,
+  .dropdown.open .dropdown-menu {
+    display: block;
+  }
+
 
   .nav-links li {
     width: 100%;
@@ -1503,7 +1531,7 @@ body.dark .faq-item.open .faq-answer {
   .nav-links li a {
     padding: 12px 16px;
     border-radius: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   }
 
   .hero-content h1 {
