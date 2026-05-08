@@ -1500,7 +1500,24 @@ body.dark .faq-item.open .faq-answer {
     transition: max-height 0.3s ease-out;
     gap: 0;
     z-index: 1000;
+    padding: 0;
   }
+
+  /* Force vertical menu buttons on mobile */
+  .nav-links > li {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-links > li > a {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px !important;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
 
   .nav-links.active {
     max-height: 500px;
