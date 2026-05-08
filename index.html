@@ -49,8 +49,6 @@
 </ul>
 </li>
 
-<li><a href="#">Library</a></li>
-
 <li><a href="#profile">About Us</a></li>
 <li><a href="#contact">Contact</a></li>
 
@@ -1253,6 +1251,21 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', function() {
     const navLinks = document.querySelector('.nav-links');
     navLinks.classList.remove('active');
+
+    // close any open dropdowns
+    document.querySelectorAll('.dropdown.open').forEach(dropdown => dropdown.classList.remove('open'));
+  });
+});
+
+// Mobile-friendly dropdown menu behavior
+document.querySelectorAll('.dropdown > a').forEach(toggle => {
+  toggle.addEventListener('click', function(event) {
+    const dropdown = this.parentElement;
+
+    if (window.innerWidth <= 900) {
+      event.preventDefault();
+      dropdown.classList.toggle('open');
+    }
   });
 });
 
