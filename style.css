@@ -129,9 +129,74 @@ nav {
   justify-content: flex-end;
 }
 
+/* Mobile dropdown navigation */
+@media (max-width: 900px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  .nav-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  /* Hide links until hamburger is opened */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    overflow: visible;
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  nav.nav-open .nav-links {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links li a {
+    padding: 12px 16px;
+    border-radius: 6px;
+    border-bottom: none;
+  }
+
+  /* Ensure dropdowns remain usable on mobile */
+  .dropdown-menu {
+    position: static;
+    min-width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .dropdown:hover .dropdown-menu,
+  .dropdown.open .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu li a {
+    padding-left: 28px;
+  }
+}
+
+
+
 .nav-links li {
   position: relative;
 }
+
 
 .nav-links li a {
   color: white;
@@ -164,7 +229,7 @@ nav {
 }
 
 .dropdown-menu li a {
-  color: var(--text-dark);
+  color: #000000;
   padding: 12px 16px;
   transition: var(--transition);
 }
@@ -597,6 +662,10 @@ body.dark .course-card {
   border-color: #333;
 }
 
+body.dark .course-card h3 {
+  color: #ffffff;
+}
+
 body.dark .stats div {
   background: #25293a;
   border-color: #ff6b35;
@@ -641,10 +710,16 @@ body.dark .dark-mode-btn {
   color: #e0e6ed;
 }
 
+/* Fix dropdown link readability in dark mode */
+body.dark .dropdown-menu li a {
+  color: #2c2c2c; /* dark gray/near-black */
+}
+
 body.dark .nav-links li a:hover,
 body.dark .dropdown-menu li a:hover {
   background: rgba(255,255,255,0.08);
 }
+
 
 body.dark .hero::before {
   background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%);
@@ -671,6 +746,30 @@ body.dark footer {
 body.dark .whatsapp-btn {
   background: #2b7d5f;
 }
+
+/* DARK MODE BUTTON - position above WhatsApp chat */
+#darkModeBtn {
+  position: fixed;
+  right: 30px;
+  bottom: 92px; /* above WhatsApp button (30px bottom + ~52px height) */
+  z-index: 10000;
+
+  /* make it circular (force override any other rule) */
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* ensure icon looks good */
+  font-size: 20px;
+  line-height: 1;
+}
+
+
+
 
 /* FOOTER */
 footer {
@@ -1460,70 +1559,47 @@ body.dark .faq-item.open .faq-answer {
 
 @media (max-width: 900px) {
   nav {
-    position: relative;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
-    width: 100%;
-    padding: 10px 15px;
+    gap: 15px;
+    padding: 15px 20px;
   }
 
   .nav-left {
     width: 100%;
+    justify-content: space-between;
   }
 
-  .hamburger {
-    display: block;
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    z-index: 1001;
-  }
-
-  .dark-mode-btn {
-    position: absolute;
-    right: 50px;
-    top: 15px;
-    margin-left: 0;
-  }
-
+  /* Mobile links are controlled by hamburger */
   .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
+    display: none;
     flex-direction: column;
-    background: white;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    gap: 0;
-    z-index: 1000;
-    padding: 0;
+    width: 100%;
+    gap: 10px;
+    max-height: none;
+    overflow: visible;
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 8px;
   }
 
-  /* Force vertical menu buttons on mobile */
-  .nav-links > li {
-    display: block;
+  nav.nav-open .nav-links {
+    display: flex;
+  }
+
+
+  .nav-links li {
     width: 100%;
   }
 
-  .nav-links > li > a {
-    display: block;
+  .nav-links li a {
     width: 100%;
-    box-sizing: border-box;
-    padding: 14px 16px !important;
-    border-radius: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 12px 16px;
+    border-radius: 6px;
+    border-bottom: none;
   }
 
-
-  .nav-links.active {
-    max-height: 500px;
-  }
-
-  /* Stack dropdown menus vertically on mobile */
+  /* Ensure dropdowns remain usable on mobile */
   .dropdown-menu {
     position: static;
     min-width: 100%;
@@ -1540,17 +1616,13 @@ body.dark .faq-item.open .faq-answer {
     display: block;
   }
 
-
-  .nav-links li {
-    width: 100%;
+  /* show hamburger on small screens */
+  .hamburger {
+    display: block;
   }
 
-  .nav-links li a {
-    padding: 12px 16px;
-    border-radius: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  }
 
+  /* Fine-tune other layout */
   .hero-content h1 {
     font-size: 38px;
   }
@@ -1584,7 +1656,13 @@ body.dark .faq-item.open .faq-answer {
   }
 }
 
+
 @media (max-width: 600px) {
+  #darkModeBtn {
+    bottom: 72px;
+    right: 20px;
+  }
+
   nav {
     padding: 12px 20px;
   }

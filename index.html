@@ -17,11 +17,11 @@
   <img src="images/logo.png" class="logo-img">
   <span class="logo-text">Lusaka Youth Resource Centre</span>
   <button id="darkModeBtn" type="button" class="dark-mode-btn" title="Toggle Dark Mode">🌙</button>
+  <button id="mobileMenuBtn" type="button" class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
 </div>
 
-<button id="hamburgerBtn" class="hamburger">☰</button>
+<ul class="nav-links" id="mobileNavLinks">
 
-<ul class="nav-links">
 
 
 
@@ -1050,44 +1050,157 @@ faders.forEach(function(el) {
 
 <script>
 // Login functionality
-document.getElementById('loginBtn').addEventListener('click', function(e) {
-  e.preventDefault();
-  // Hide all public sections
-  document.querySelectorAll('section:not(#loginSection):not(#studentDashboard):not(#lecturerDashboard)').forEach(sec => sec.style.display = 'none');
-  document.getElementById('loginSection').style.display = 'block';
-});
+(function() {
+  const loginBtn = document.getElementById('loginBtn');
+  const backToHome = document.getElementById('backToHome');
+  const loginForm = document.getElementById('loginForm');
+  const studentLogout = document.getElementById('studentLogout');
+  const lecturerLogout = document.getElementById('lecturerLogout');
+  const gradesForm = document.getElementById('gradesForm');
+  const announcementForm = document.getElementById('announcementForm');
 
-document.getElementById('backToHome').addEventListener('click', function() {
-  document.getElementById('loginSection').style.display = 'none';
-  // Show public sections
-  document.querySelectorAll('section:not(#loginSection):not(#studentDashboard):not(#lecturerDashboard)').forEach(sec => sec.style.display = 'block');
-});
-
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const role = document.getElementById('role').value;
-  const username = document.getElementById('username').value.trim();
-  const password = document.getElementById('password').value.trim();
-  const error = document.getElementById('loginError');
-
-  if (role === 'student' && username === 'student' && password === 'pass') {
-    document.getElementById('loginSection').style.display = 'none';
-    document.getElementById('studentDashboard').style.display = 'block';
-    error.textContent = '';
-  } else if (role === 'lecturer' && username === 'lecturer' && password === 'pass') {
-    document.getElementById('loginSection').style.display = 'none';
-    document.getElementById('lecturerDashboard').style.display = 'block';
-    error.textContent = '';
-  } else {
-    error.textContent = 'Invalid credentials or role';
+  if (loginBtn) {
+    loginBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelectorAll('section:not(#loginSection):not(#studentDashboard):not(#lecturerDashboard)').forEach(sec => sec.style.display = 'none');
+      const loginSection = document.getElementById('loginSection');
+      if (loginSection) loginSection.style.display = 'block';
+    });
   }
-});
 
-document.getElementById('studentLogout').addEventListener('click', function() {
-  document.getElementById('studentDashboard').style.display = 'none';
-  document.querySelectorAll('section:not(#loginSection):not(#studentDashboard):not(#lecturerDashboard)').forEach(sec => sec.style.display = 'block');
-  document.getElementById('loginForm').reset();
-});
+  if (backToHome) {
+    backToHome.addEventListener('click', function() {
+      const loginSection = document.getElementById('loginSection');
+      if (loginSection) loginSection.style.display = 'none';
+      document.querySelectorAll('section:not(#loginSection):not(#studentDashboard):not(#lecturerDashboard)').forEach(sec => sec.style.display = 'block');
+    });
+  }
+
+  if (loginForm) {
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const role = document.getElementById('role')?.value;
+      const username = document.getElementById('username')?.value.trim() || '';
+      const password = document.getElementById('password')?.value.trim() || '';
+      const error = document.getElementById('loginError');
+
+      if (!error) return;
+
+      if (role === 'student' && username === 'student' && password === 'pass') {
+        const loginSection = document.getElementById('loginSection');
+        if (loginSection) loginSection.style.display = 'none';
+        const studentDashboard = document.getElementById('studentDashboard');
+        if (studentDashboard) studentDashboard.style.display = 'block';
+        error.textContent = '';
+      } else if (role === 'lecturer' && username === 'lecturer' && password === 'pass') {
+        const loginSection = document.getElementById('loginSection');
+        if (loginSection) loginSection.style.display = 'none';
+        const lecturerDashboard = document.getElementById('lecturerDashboard');
+        if (lecturerDashboard) lecturerDashboard.style.display = 'block';
+        error.textContent = '';
+      } else {
+        error.textContent = 'Invalid credentials or role';
+      }
+    });
+  }
+
+  if (studentLogout) {
+    studentLogout.addEventListener('click', function() {
+      const studentDashboard = document.getElementById('studentDashboard');
+      if (studentDashboard) studentDashboard.style.display = 'none';
+      document.querySelectorAll('section:not(#loginSection):not(#studentDashboard):not(#lecturerDashboard)').forEach(sec => sec.style.display = 'block');
+      document.getElementById('loginForm')?.reset();
+    });
+  }
+
+  if (lecturerLogout) {
+    lecturerLogout.addEventListener('click', function() {
+      const lecturerDashboard = document.getElementById('lecturerDashboard');
+      if (lecturerDashboard) lecturerDashboard.style.display = 'none';
+      document.querySelectorAll('section:not(#loginSection):not(#studentDashboard):not(#lecturerDashboard)').forEach(sec => sec.style.display = 'block');
+      document.getElementById('loginForm')?.reset();
+    });
+  }
+
+  if (gradesForm) {
+    gradesForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const gradeClass = document.getElementById('gradeClass')?.value || '';
+      const gradeStudent = document.getElementById('gradeStudent')?.value || '';
+      const courseworkMark = document.getElementById('courseworkMark')?.value || '';
+      const examMark = document.getElementById('examMark')?.value || '';
+      const error = document.getElementById('gradeError');
+      const success = document.getElementById('gradeSuccess');
+
+      if (!error || !success) return;
+
+      error.textContent = '';
+      success.textContent = '';
+
+      const missing = [];
+      if (gradeClass === '') missing.push('Class');
+      if (gradeStudent === '') missing.push('Student');
+      if (courseworkMark === '') missing.push('Coursework Mark');
+      if (examMark === '') missing.push('Exam Mark');
+
+      if (missing.length > 0) {
+        error.textContent = '⚠️ Please fill in the following: ' + missing.join(', ') + '.';
+        return;
+      }
+
+      if (courseworkMark < 0 || courseworkMark > 100 || examMark < 0 || examMark > 100) {
+        error.textContent = '⚠️ Marks must be between 0 and 100.';
+        return;
+      }
+
+      const average = (parseInt(courseworkMark) + parseInt(examMark)) / 2;
+      success.textContent = '✅ Grade saved successfully! Student average: ' + average.toFixed(1) + '/100';
+      setTimeout(() => {
+        gradesForm.reset();
+        success.textContent = '';
+      }, 3000);
+    });
+  }
+
+  if (announcementForm) {
+    announcementForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const title = document.getElementById('announcementTitle')?.value.trim() || '';
+      const message = document.getElementById('announcementMessage')?.value.trim() || '';
+      const announcementClass = document.getElementById('announcementClass')?.value || '';
+      const error = document.getElementById('announceError');
+      const success = document.getElementById('announceSuccess');
+
+      if (!error || !success) return;
+
+      error.textContent = '';
+      success.textContent = '';
+
+      const missing = [];
+      if (title === '') missing.push('Title');
+      if (message === '') missing.push('Message');
+      if (announcementClass === '') missing.push('Class');
+
+      if (missing.length > 0) {
+        error.textContent = '⚠️ Please fill in the following: ' + missing.join(', ') + '.';
+        return;
+      }
+
+      if (message.length < 10) {
+        error.textContent = '⚠️ Message must be at least 10 characters long.';
+        return;
+      }
+
+      success.textContent = '✅ Announcement posted successfully!';
+      setTimeout(() => {
+        announcementForm.reset();
+        success.textContent = '';
+      }, 3000);
+    });
+  }
+})();
 
 // Student Dashboard Tab Switching
 document.querySelectorAll('.tab-btn').forEach(button => {
@@ -1240,61 +1353,80 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Hamburger menu functionality
-document.getElementById('hamburgerBtn').addEventListener('click', function() {
-  const navLinks = document.querySelector('.nav-links');
-  navLinks.classList.toggle('active');
-});
-
-// Close menu when a link is clicked
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', function() {
-    const navLinks = document.querySelector('.nav-links');
-    navLinks.classList.remove('active');
-
-    // close any open dropdowns
-    document.querySelectorAll('.dropdown.open').forEach(dropdown => dropdown.classList.remove('open'));
-  });
-});
-
-// Mobile-friendly dropdown menu behavior
-document.querySelectorAll('.dropdown > a').forEach(toggle => {
-  toggle.addEventListener('click', function(event) {
-    const dropdown = this.parentElement;
-
-    if (window.innerWidth <= 900) {
-      event.preventDefault();
-      dropdown.classList.toggle('open');
-    }
-  });
-});
-
-// Dark mode toggle functionality
-document.addEventListener('DOMContentLoaded', function() {
+// Mobile nav and dark mode setup
+(function() {
+  const nav = document.querySelector('nav');
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileNavLinks = document.getElementById('mobileNavLinks');
   const darkModeBtn = document.getElementById('darkModeBtn');
-  if (!darkModeBtn) return;
 
-  // Restore dark mode state on page load
-  if (localStorage.getItem('darkMode') === 'enabled') {
-    document.body.classList.add('dark');
-    darkModeBtn.textContent = '☀️';
-  } else {
-    darkModeBtn.textContent = '🌙';
+  function isMobileView() {
+    return window.innerWidth <= 900;
   }
 
-  // Toggle dark mode on button click
-  darkModeBtn.addEventListener('click', function() {
-    document.body.classList.toggle('dark');
+  function setNavOpen(isOpen) {
+    if (!nav || !mobileMenuBtn || !mobileNavLinks) return;
 
-    if (document.body.classList.contains('dark')) {
-      darkModeBtn.textContent = '☀️';
-      localStorage.setItem('darkMode', 'enabled');
-    } else {
-      darkModeBtn.textContent = '🌙';
-      localStorage.setItem('darkMode', 'disabled');
+    nav.classList.toggle('nav-open', isOpen);
+    mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+    mobileMenuBtn.textContent = isOpen ? '✕' : '☰';
+    mobileNavLinks.style.display = isOpen ? 'flex' : '';
+  }
+
+  function closeMobileNav() {
+    if (nav && nav.classList.contains('nav-open')) {
+      setNavOpen(false);
+    }
+  }
+
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      const isOpen = nav && nav.classList.contains('nav-open');
+      setNavOpen(!isOpen);
+    });
+  }
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function() {
+      document.querySelectorAll('.dropdown.open').forEach(dropdown => dropdown.classList.remove('open'));
+      if (isMobileView()) {
+        closeMobileNav();
+      }
+    });
+  });
+
+  document.querySelectorAll('.dropdown > a').forEach(toggle => {
+    toggle.addEventListener('click', function(event) {
+      if (isMobileView()) {
+        event.preventDefault();
+        const dropdown = this.parentElement;
+        if (dropdown) {
+          dropdown.classList.toggle('open');
+        }
+      }
+    });
+  });
+
+  window.addEventListener('resize', function() {
+    if (!isMobileView()) {
+      closeMobileNav();
     }
   });
-});
+
+  if (darkModeBtn) {
+    const darkModeEnabled = localStorage.getItem('darkMode') === 'enabled';
+    document.body.classList.toggle('dark', darkModeEnabled);
+    darkModeBtn.textContent = darkModeEnabled ? '☀️' : '🌙';
+
+    darkModeBtn.addEventListener('click', function() {
+      const isDark = document.body.classList.toggle('dark');
+      darkModeBtn.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+    });
+  }
+})();
 </script>
 
 </body>
