@@ -78,8 +78,8 @@
 <h2>Welcome to Lusaka Youth Resource Centre</h2>
 <p>Join Thousands of Successful Graduates</p>
 
+
 <a href="#profile" class="btn">Learn More</a>
-<a href="#courses" class="btn secondary">Our Programmes</a>
 
 </section>
 
@@ -89,7 +89,7 @@
 <h2>Lusaka Youth Resource Centre – Institutional Profile</h2>
 
 <p>
-Lusaka Youth Resource Centre supports young people to begin or continue their education—regardless of where they started, their school history, or whether they previously dropped out.
+Lusaka Youth Resource Centre supports young people to begin or continue their education, regardless of where they started, their school history, or whether they previously dropped out.
 </p>
 
 </section>
@@ -139,7 +139,8 @@ Lusaka Youth Resource Centre supports young people to begin or continue their ed
 <section id="application" class="fade-in">
 
 <h2>Admission Portal</h2>
-<p>Apply to enroll and start learning with us. If you are freshly out of high school, a school dropout, or you simply want a fresh start—this is for you.</p>
+<p>Apply to enroll and start learning with us. If you are freshly out of high school, a school dropout, or you simply want a fresh start, this is for you.</p>
+
 
 <p><strong>As you physically come to apply for the 3 month short intensive tevet course carry a photocopy of your green NRC and your passport size photo. THANK YOU!</strong></p>
 
@@ -1389,7 +1390,12 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function() {
+    link.addEventListener('click', function(e) {
+      // Do NOT close the whole mobile menu if the user tapped a dropdown toggle.
+      if (this.closest && this.closest('.dropdown')) {
+        return;
+      }
+
       document.querySelectorAll('.dropdown.open').forEach(dropdown => dropdown.classList.remove('open'));
       if (isMobileView()) {
         closeMobileNav();
@@ -1400,20 +1406,60 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.dropdown > a').forEach(toggle => {
     toggle.addEventListener('click', function(event) {
       if (isMobileView()) {
+        // Toggle dropdown without closing the parent mobile nav.
         event.preventDefault();
+        event.stopPropagation();
+
         const dropdown = this.parentElement;
         if (dropdown) {
           dropdown.classList.toggle('open');
         }
+
+        // On mobile, opening one dropdown should close others.
+        document.querySelectorAll('.dropdown').forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
       }
     });
   });
+
+  // Desktop hover behavior: open on mouse enter, close on mouse leave (with delay)
+  // This prevents the menu from disappearing when moving the cursor from the toggle into the dropdown.
+  document.querySelectorAll('.dropdown').forEach(dropdown => {
+    let closeTimeoutId = null;
+
+    function openDropdown() {
+      if (!isMobileView()) {
+        if (closeTimeoutId) {
+          clearTimeout(closeTimeoutId);
+          closeTimeoutId = null;
+        }
+        dropdown.classList.add('open');
+      }
+    }
+
+    function scheduleClose() {
+      if (!isMobileView()) {
+        if (closeTimeoutId) clearTimeout(closeTimeoutId);
+
+        closeTimeoutId = setTimeout(() => {
+          dropdown.classList.remove('open');
+          closeTimeoutId = null;
+        }, 180); // ms delay before closing
+      }
+    }
+
+    dropdown.addEventListener('mouseenter', openDropdown);
+    dropdown.addEventListener('mouseleave', scheduleClose);
+  });
+
 
   window.addEventListener('resize', function() {
     if (!isMobileView()) {
       closeMobileNav();
     }
   });
+
 
   if (darkModeBtn) {
     const darkModeEnabled = localStorage.getItem('darkMode') === 'enabled';
