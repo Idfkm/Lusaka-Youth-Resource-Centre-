@@ -43,6 +43,15 @@ body {
   background: var(--lighter);
   color: var(--text-dark);
   line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+section,
+nav,
+.hero,
+footer,
+form {
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* NAVBAR */
@@ -1446,6 +1455,7 @@ body.dark .faq-item.open .faq-answer {
 
 @media (max-width: 900px) {
   nav {
+    position: relative;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
@@ -1462,6 +1472,7 @@ body.dark .faq-item.open .faq-answer {
     position: absolute;
     right: 15px;
     top: 15px;
+    z-index: 1001;
   }
 
   .dark-mode-btn {
@@ -1478,6 +1489,7 @@ body.dark .faq-item.open .faq-answer {
     overflow: hidden;
     transition: max-height 0.3s ease-out;
     gap: 0;
+    background: rgba(0, 0, 0, 0.15);
   }
 
   .nav-links.active {
@@ -1491,6 +1503,7 @@ body.dark .faq-item.open .faq-answer {
   .nav-links li a {
     padding: 12px 16px;
     border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .hero-content h1 {
