@@ -1405,22 +1405,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.querySelectorAll('.dropdown > a').forEach(toggle => {
     toggle.addEventListener('click', function(event) {
-      if (isMobileView()) {
-        // Toggle dropdown without closing the parent mobile nav.
-        event.preventDefault();
-        event.stopPropagation();
+      const dropdown = this.parentElement;
+      if (!dropdown) return;
 
-        const dropdown = this.parentElement;
-        if (dropdown) {
-          dropdown.classList.toggle('open');
-        }
+      // Prevent following href="#" and allow toggle open/close on repeated taps/clicks.
+      event.preventDefault();
+      event.stopPropagation();
 
-        // On mobile, opening one dropdown should close others.
+      const willOpen = !dropdown.classList.contains('open');
+      dropdown.classList.toggle('open');
+
+      // If opening one dropdown, close the others (but if clicking the already-open one, keep it closed).
+      if (willOpen) {
         document.querySelectorAll('.dropdown').forEach(d => {
           if (d !== dropdown) d.classList.remove('open');
         });
       }
     });
+  });
+
+  // Close dropdowns when clicking outside of the dropdown (keeps second-click toggle working).
+  document.addEventListener('click', function(event) {
+    const clickedDropdownToggle = event.target && event.target.closest && event.target.closest('.dropdown > a');
+    const clickedDropdown = event.target && event.target.closest && event.target.closest('.dropdown');
+
+    if (clickedDropdownToggle || clickedDropdown) return;
+    document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
   });
 
   // Desktop hover behavior: open on mouse enter, close on mouse leave (with delay)
