@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Details | Lusaka Youth Resource Centre</title>
+<link rel="icon" href="images/logo.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="animations.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <img src="images/logo.png" class="logo-img">
+    <span class="logo-text">Lusaka Youth Resource Centre</span>
+    <button id="mobileMenuBtn" type="button" class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+
+  <ul class="nav-links" id="mobileNavLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#application">Apply Now</a></li>
+    <li><a href="index.html#courses">Programmes</a></li>
+    <li><a href="courses.html">Course Details</a></li>
+    <li><a href="index.html#profile">About Us</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-slide active" style="background-image:url('images/hero-banner.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero2.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero3.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero4.jpg')"></div>
+
+  <div class="hero-content">
+    <h1>Explore Our Course Details</h1>
+    <p>Learn what each programme includes, how students learn, and the practical skills you will gain.</p>
+    <a href="index.html#application" class="btn">Apply Now</a>
+    <a href="index.html" class="btn secondary">Back to Home</a>
+  </div>
+</header>
+
+<section class="fade-in">
+  <h2>What to Expect in Our Programmes</h2>
+  <p>Each programme blends hands-on training, real-world projects, and career-focused guidance. Students build confidence through practical learning, teamwork, and mentorship from experienced instructors.</p>
+</section>
+
+<section class="fade-in">
+  <div class="course-details-grid">
+    <article>
+      <h3>School of Engineering & Technology</h3>
+      <p>The School of Engineering & Technology offers practical training in ICT, electrical systems, electronics, and digital tools. Students learn to use technology for problem solving, maintenance, and industry-standard installations.</p>
+      <p><strong>Expect:</strong> hands-on labs, software and hardware workshops, teamwork on technical projects, and real-world simulations that prepare you for entry-level technical roles.</p>
+    </article>
+    <article>
+      <h3>College of Business & Economics</h3>
+      <p>This school builds business skills, financial awareness, entrepreneurship, and customer relations. Students explore business planning, basic accounting, office management, and small enterprise operations.</p>
+      <p><strong>Expect:</strong> business case exercises, practical planning tasks, communication skills training, and support for starting small businesses or working in administration.</p>
+    </article>
+    <article>
+      <h3>Faculty of Health Sciences</h3>
+      <p>The Faculty of Health Sciences teaches health promotion, personal care, hygiene, and first response basics. Learners gain confidence in supporting wellness, safe practice, and community health awareness.</p>
+      <p><strong>Expect:</strong> practical health skills, safety training, patient communication practice, and guidance toward health support roles in clinics or outreach programmes.</p>
+    </article>
+    <article>
+      <h3>School of Liberal Arts</h3>
+      <p>The School of Liberal Arts focuses on communication, creativity, and practical trade skills such as carpentry and hospitality. Students build literacy, teamwork, and vocational skills that support a wide range of careers.</p>
+      <p><strong>Expect:</strong> classroom learning paired with creative projects, public speaking practice, and practical workshops to strengthen both thinking and hands-on ability.</p>
+    </article>
+    <article>
+      <h3>Graduate School</h3>
+      <p>The Graduate School develops advanced skills for learners who want to move into leadership roles or develop specialised expertise. Training includes project management, mentoring, and pathways to certification or further study.</p>
+      <p><strong>Expect:</strong> leadership exercises, real-world planning assignments, and career guidance focused on growth beyond the basic programme.</p>
+    </article>
+    <article>
+      <h3>Research & Innovation Centre</h3>
+      <p>The Research & Innovation Centre encourages creativity, practical design, and problem-solving. Students develop project ideas, design products or services, and learn how to bring innovation into their chosen field.</p>
+      <p><strong>Expect:</strong> collaborative innovation workshops, prototype work, and support for developing new solutions that match local community needs.</p>
+
+<section class="fade-in">
+  <h2>Student Support and Pathways</h2>
+  <p>LYRC supports students through career guidance, interview preparation, and access to local internships. After each programme, learners are prepared for entry-level roles or further study.</p>
+  <ul>
+    <li>Experienced instructors and practical labs</li>
+    <li>Study support for newcomers and return learners</li>
+    <li>Linkages to local employers and youth services</li>
+  </ul>
+</section>
+
+<section id="contact" class="fade-in">
+  <h2>Ready to learn more?</h2>
+  <p>If you want detailed course guides, admissions support, or help choosing the best programme, please get in touch with our team.</p>
+  <a href="index.html#application" class="btn">Apply or Enquire</a>
+</section>
+
+<!-- FLOATING ACTION BUTTONS -->
+<div class="floating-buttons">
+  <button id="darkModeBtn" type="button" class="dark-mode-btn" title="Toggle Dark Mode">🌙</button>
+  <a href="https://wa.me/260954277317" target="_blank" class="whatsapp-btn" title="Chat with us on WhatsApp">
+    💬 Chat with LYRC
+  </a>
+</div>
+
+<script>
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileNavLinks = document.getElementById('mobileNavLinks');
+  const darkModeBtn = document.getElementById('darkModeBtn');
+  const nav = document.querySelector('nav');
+
+  function isMobileView() {
+    return window.innerWidth <= 900;
+  }
+
+  function setNavOpen(isOpen) {
+    if (!nav || !mobileMenuBtn || !mobileNavLinks) return;
+    nav.classList.toggle('nav-open', isOpen);
+    mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+    mobileMenuBtn.textContent = isOpen ? '✕' : '☰';
+    mobileNavLinks.style.display = isOpen ? 'flex' : '';
+  }
+
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      const isOpen = nav && nav.classList.contains('nav-open');
+      setNavOpen(!isOpen);
+    });
+  }
+
+  document.addEventListener('click', function(event) {
+    const target = event.target;
+    if (!target || !target.closest) return;
+    const clickedOnNav = target.closest('nav');
+    if (!clickedOnNav) {
+      if (nav && nav.classList.contains('nav-open')) {
+        setNavOpen(false);
+      }
+    }
+  });
+
+  if (darkModeBtn) {
+    const darkModeEnabled = localStorage.getItem('darkMode') === 'enabled';
+    document.body.classList.toggle('dark', darkModeEnabled);
+    darkModeBtn.textContent = darkModeEnabled ? '☀️' : '🌙';
+
+    darkModeBtn.addEventListener('click', function() {
+      const isDark = document.body.classList.toggle('dark');
+      darkModeBtn.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -6,6 +6,7 @@
 <title>Lusaka Youth Resource Centre</title>
 <link rel="icon" href="images/logo.png" type="image/png">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="animations.css">
 </head>
 
 <body>
@@ -16,7 +17,6 @@
 <div class="nav-left">
   <img src="images/logo.png" class="logo-img">
   <span class="logo-text">Lusaka Youth Resource Centre</span>
-  <button id="darkModeBtn" type="button" class="dark-mode-btn" title="Toggle Dark Mode">🌙</button>
   <button id="mobileMenuBtn" type="button" class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
 </div>
 
@@ -40,12 +40,12 @@
 <li class="dropdown">
 <a href="#courses">Programmes ▾</a>
 <ul class="dropdown-menu">
-<li><a href="#">ICT</a></li>
-<li><a href="#">Food Production</a></li>
-<li><a href="#">Hospitality</a></li>
-<li><a href="#">Electrical</a></li>
-<li><a href="#">Carpentry</a></li>
-<li><a href="#">Fashion Design</a></li>
+<li><span>ICT</span></li>
+<li><span>Food Production</span></li>
+<li><span>Hospitality</span></li>
+<li><span>Electrical</span></li>
+<li><span>Carpentry</span></li>
+<li><span>Fashion Design</span></li>
 </ul>
 </li>
 
@@ -892,10 +892,13 @@ Lusaka Youth Resource Centre supports young people to begin or continue their ed
 <p>© 2026 Lusaka Youth Resource Centre. All Rights Reserved.</p>
 
 </footer>
-<!-- WHATSAPP BUTTON -->
-<a href="https://wa.me/260954277317" target="_blank" class="whatsapp-btn" title="Chat with us on WhatsApp">
-  💬 Chat with LYRC
-</a>
+<!-- FLOATING ACTION BUTTONS -->
+<div class="floating-buttons">
+  <button id="darkModeBtn" type="button" class="dark-mode-btn" title="Toggle Dark Mode">🌙</button>
+  <a href="https://wa.me/260954277317" target="_blank" class="whatsapp-btn" title="Chat with us on WhatsApp">
+    💬 Chat with LYRC
+  </a>
+</div>
 <!-- HERO SLIDER -->
 <script>
 
@@ -1408,14 +1411,14 @@ document.addEventListener('DOMContentLoaded', function() {
       const dropdown = this.parentElement;
       if (!dropdown) return;
 
-      // Prevent following href="#" and allow toggle open/close on repeated taps/clicks.
+      // Toggle open/close on tap/click (including mobile).
       event.preventDefault();
       event.stopPropagation();
 
       const willOpen = !dropdown.classList.contains('open');
       dropdown.classList.toggle('open');
 
-      // If opening one dropdown, close the others (but if clicking the already-open one, keep it closed).
+      // If opening one dropdown, close the others.
       if (willOpen) {
         document.querySelectorAll('.dropdown').forEach(d => {
           if (d !== dropdown) d.classList.remove('open');
@@ -1424,45 +1427,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Close dropdowns when clicking outside of the dropdown (keeps second-click toggle working).
+  // Close dropdowns when clicking/tapping outside (mobile + desktop).
   document.addEventListener('click', function(event) {
-    const clickedDropdownToggle = event.target && event.target.closest && event.target.closest('.dropdown > a');
-    const clickedDropdown = event.target && event.target.closest && event.target.closest('.dropdown');
+    const target = event.target;
+    if (!target || !target.closest) return;
 
+    const clickedDropdownToggle = target.closest('.dropdown > a');
+    const clickedDropdown = target.closest('.dropdown');
+
+    // If the click was on a dropdown toggle or inside an open dropdown, do nothing.
     if (clickedDropdownToggle || clickedDropdown) return;
+
     document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
   });
-
-  // Desktop hover behavior: open on mouse enter, close on mouse leave (with delay)
-  // This prevents the menu from disappearing when moving the cursor from the toggle into the dropdown.
-  document.querySelectorAll('.dropdown').forEach(dropdown => {
-    let closeTimeoutId = null;
-
-    function openDropdown() {
-      if (!isMobileView()) {
-        if (closeTimeoutId) {
-          clearTimeout(closeTimeoutId);
-          closeTimeoutId = null;
-        }
-        dropdown.classList.add('open');
-      }
-    }
-
-    function scheduleClose() {
-      if (!isMobileView()) {
-        if (closeTimeoutId) clearTimeout(closeTimeoutId);
-
-        closeTimeoutId = setTimeout(() => {
-          dropdown.classList.remove('open');
-          closeTimeoutId = null;
-        }, 180); // ms delay before closing
-      }
-    }
-
-    dropdown.addEventListener('mouseenter', openDropdown);
-    dropdown.addEventListener('mouseleave', scheduleClose);
-  });
-
 
   window.addEventListener('resize', function() {
     if (!isMobileView()) {
